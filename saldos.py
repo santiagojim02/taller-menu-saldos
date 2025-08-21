@@ -1,5 +1,5 @@
 def crear_archivo():
-    with open("clientes.txt","w",encoding="utf-8") as f:
+    with open("usuarios.txt","w",encoding="utf-8") as f:
         f.write("cedula,nombre,saldo\n")
         f.write("12345,jose,50.43\n")
         f.write("54321,dario,43.12\n")
@@ -11,7 +11,7 @@ def crear_archivo():
 
 def consultar_saldo():
     nombre_buscar = input("nombre del cliente: ")
-    with open("clientes.txt","r",encoding="utf-8") as f:
+    with open("usuarios.txt","r",encoding="utf-8") as f:
         f.readline()
         encontrado = False
         for linea in f:
@@ -25,7 +25,7 @@ def consultar_saldo():
 
 def contar_mayores_50():
     contador = 0
-    with open("clientes.txt","r",encoding="utf-8") as f:
+    with open("usuarios.txt","r",encoding="utf-8") as f:
         f.readline()
         for linea in f:
             cedula,nombre,saldo = linea.strip().split(",")
@@ -34,18 +34,18 @@ def contar_mayores_50():
     print("clientes con saldo mayor a 50:",contador,"\n")
 
 def ordenar_por_saldo():
-    clientes = []
-    with open("clientes.txt","r",encoding="utf-8") as f:
+    usuarios = []
+    with open("usuarios.txt","r",encoding="utf-8") as f:
         f.readline()
         for linea in f:
             cedula,nombre,saldo = linea.strip().split(",")
-            clientes.append([nombre,float(saldo)])
-    for i in range(len(clientes)):
-        for j in range(i+1,len(clientes)):
-            if clientes[i][1] > clientes[j][1]:
-                clientes[i],clientes[j] = clientes[j],clientes[i]
+            usuarios.append([nombre,float(saldo)])
+    for i in range(len(usuarios)):
+        for j in range(i+1,len(usuarios)):
+            if usuarios[i][1] > usuarios[j][1]:
+                usuarios[i],usuarios[j] = usuarios[j],usuarios[i]
     print("clientes ordenados por saldo:")
-    for c in clientes:
+    for c in usuarios                           :
         print(c[0],c[1])
     print()
 
@@ -63,4 +63,4 @@ while True:
     elif op=="5":
         break
     else:
-        print("opcion invalida\n")
+        print("opcion no existente\n")

@@ -1,6 +1,0 @@
-cedula,nombre,saldo
-12345,jose,50.43
-54321,dario,43.12
-67890,ana,75.60
-98765,marta,20.00
-24680,luis,55.30
